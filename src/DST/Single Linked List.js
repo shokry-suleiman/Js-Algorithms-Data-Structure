@@ -1,8 +1,10 @@
 class Node {
+
     constructor(val){
         this.val = val;
         this.next = null;
     }
+
 }
 
 class SingleLinkedList{
@@ -32,7 +34,6 @@ class SingleLinkedList{
         while(current.next != this.tail){
             current = current.next;
         }
-        
         current.next = null;
         this.tail =current;
         --this.length;
@@ -45,7 +46,6 @@ class SingleLinkedList{
     shift(){
         if(this.head == null)
             return undefined
-        let current = this.head;
         this.head = this.head.next;
         --this.length;
     }
@@ -94,10 +94,8 @@ class SingleLinkedList{
             this.push(val);
             return true;
         }
-
         let node = new Node(val);
         let current = this.get(index-1);
-        
         if(!current)return false;
         let temp = current;
         node.next = temp.next;
@@ -109,19 +107,15 @@ class SingleLinkedList{
     remove(index){
         if(index < 0 || index >= this.length) return null;
         let node = this.get(index);
-
         if(index == 0){
             this.shift();
             return node.val;
         }
-
         if(index == this.length-1 ){
             this.pop();
             return node.val
         }
-
         let current = this.get(index-1);
-
         if(!current) return null;
         current.next = node.next;
         --this.length;
@@ -135,9 +129,6 @@ class SingleLinkedList{
         let current = root;
         let prev = null;
         let next = null;
-        console.log('current',current);
-        console.log('prev',prev);
-        console.log(next)
         let i =0;
         while(i<this.length){
             console.log('curr',current)
@@ -147,28 +138,5 @@ class SingleLinkedList{
             current = next
             ++i;
         }
-        // this.head.next = prev
     }
 }
-
-let SLL = new SingleLinkedList();
-SLL.push(1);
-SLL.push(2);
-SLL.push(3);
-SLL.push(4);
-console.log('before')
-console.log(SLL);
-SLL.reverse();
-console.log('after')
-console.log(SLL)
-
-// SLL.pop();
-// SLL.shift();
-// SLL.unShift(5);
-// console.log(SLL);
-// console.log(SLL.get(2))
-// console.log(SLL.set(2,9))
-// console.log(SLL.insert(0,3));
-// console.log(SLL);
-// console.log(SLL.remove(1));
-// console.log(SLL);
